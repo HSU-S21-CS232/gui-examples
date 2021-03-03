@@ -23,3 +23,14 @@ class Calculator:
 
     def value(self):
         return self._accumulator
+    
+if __name__ == '__main__':
+    x = int(input("Enter a number: "))
+    y = int(input("Enter another number: "))
+    calc = Calculator()
+    calc.load(x)
+    calc.add(y)
+    print(x, "+", y, "=", calc.value())
+
+    #unit tests
+    assert x + y == calc.value()

@@ -19,7 +19,7 @@ class ArithmeticOperations(Enum):
 class CalculatorViewModel(QObject):
 
     #class constructor
-    def __init__(self, ui_file, parent=None):
+    def __init__(self, ui_file = 'calculator.ui', parent=None):
 
         self.calculator = Calculator()
         self.last_arithmetic_operation = ArithmeticOperations.NoOp
