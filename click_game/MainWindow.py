@@ -12,9 +12,9 @@ class MainWindow(QObject):
     #class constructor
     def __init__(self, ui_file = 'MainWindow.ui', parent=None):
 
-        self._num_buttons = 8
-        self._num_rows = 3
-        self._num_cols = 3
+        self._num_buttons = 15
+        self._num_rows = 4
+        self._num_cols = 4
 
         #call class parent (QObject) constructor
         super(MainWindow, self).__init__(parent)
@@ -44,10 +44,10 @@ class MainWindow(QObject):
     def initializeGame(self):
 
         #create buttons
-        self.buttons = {}
+        self._buttons = {}
         for i in range(1, self._num_buttons + 1):
-            self.buttons[i] = QPushButton(str(i))
-            self.buttons[i].setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+            self._buttons[i] = QPushButton(str(i))
+            self._buttons[i].setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         
         #initialize spaces
         available_rows = []
@@ -67,8 +67,8 @@ class MainWindow(QObject):
             for j in range(len(available_cols)):
                 next_row = available_rows[i]
                 next_col = available_cols[j]
-                if current_button in buttons:
-                    layout_grid.addWidget(self.buttons[current_button], next_row, next_col)
+                if current_button in self._buttons:
+                    layout_grid.addWidget(self._buttons[current_button], next_row, next_col)
                     current_button += 1
 
 
